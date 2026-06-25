@@ -28,15 +28,9 @@ Desarrollar una plataforma tecnológica que facilite la conexión entre entidade
 
 ## Tecnologías
 
-*(Agregar aquí las tecnologías utilizadas en el proyecto)*
-
-Ejemplo:
-
 - Backend: .NET / C#
-- Frontend: *(pendiente)*
-- Base de datos: *(pendiente)*
-- Control de versiones: Git & GitHub
-
+- Frontend: cshtml
+- Base de datos: SQLite
 ---
 
-Proyecto desarrollado como parte de la formación académica en la **Universidad APEC (UNAPEC)**.
+Proyecto desarrollado como parte de la asingatura Desarrollo con Tecnologias Open Source 1 - Facilitado - Omar Reyes -  en la **Universidad APEC (UNAPEC)**.
