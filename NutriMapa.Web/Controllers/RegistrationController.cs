@@ -98,7 +98,7 @@ namespace NutriMapa.Web.Controllers
                 await _signInManager.SignInAsync(user, isPersistent: false);
 
                 // Redirigimos al dashboard correspondiente según el rol
-                return RedirectToAction("Index", model.ProfileType + "Dashboard");
+                return RedirectToAction(model.ProfileType, "Dashboard");
             }
 
             // Si la creación falló (por ejemplo, email ya existente), mostramos los errores
