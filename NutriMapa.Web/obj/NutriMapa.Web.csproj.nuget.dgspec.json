@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA/NutriMapa.Web/NutriMapa.Web.csproj": {}
+    "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA-PROJECT/NutriMapa.Web/NutriMapa.Web.csproj": {}
   },
   "projects": {
-    "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA/NutriMapa.Web/NutriMapa.Web.csproj": {
+    "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA-PROJECT/NutriMapa.Web/NutriMapa.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA/NutriMapa.Web/NutriMapa.Web.csproj",
+        "projectUniqueName": "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA-PROJECT/NutriMapa.Web/NutriMapa.Web.csproj",
         "projectName": "NutriMapa.Web",
-        "projectPath": "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA/NutriMapa.Web/NutriMapa.Web.csproj",
+        "projectPath": "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA-PROJECT/NutriMapa.Web/NutriMapa.Web.csproj",
         "packagesPath": "/Users/romeramparo/.nuget/packages/",
-        "outputPath": "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA/NutriMapa.Web/obj/",
+        "outputPath": "/Users/romeramparo/Documents/PROJECTS/NUTRIMAPA-PROJECT/NutriMapa.Web/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/romeramparo/.nuget/NuGet/NuGet.Config"

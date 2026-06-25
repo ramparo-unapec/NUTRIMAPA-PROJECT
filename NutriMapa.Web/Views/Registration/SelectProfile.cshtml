@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "Seleccionar Perfil";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h2 class="mb-2">Bienvenido a NutriMapa</h2>
+            <p class="text-muted mb-5">Selecciona tu tipo de perfil para comenzar el registro</p>
+
+            <div class="row g-4">
+
+                <!-- Tarjeta Donante -->
+                <div class="col-md-4">
+                    <a href="@Url.Action("Register", "Registration", new { profileType = "Donante" })"
+                       class="text-decoration-none">
+                        <div class="card h-100 border-success shadow-sm p-3 hover-card">
+                            <div class="card-body text-center">
+                                <div class="mb-3" style="font-size: 2.5rem;">🏪</div>
+                                <h5 class="card-title text-success fw-bold">Donante</h5>
+                                <p class="card-text text-muted small">
+                                    Restaurantes, supermercados, hoteles y comercios con excedentes alimentarios.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Tarjeta Voluntario -->
+                <div class="col-md-4">
+                    <a href="@Url.Action("Register", "Registration", new { profileType = "Voluntario" })"
+                       class="text-decoration-none">
+                        <div class="card h-100 border-primary shadow-sm p-3">
+                            <div class="card-body text-center">
+                                <div class="mb-3" style="font-size: 2.5rem;">🚴</div>
+                                <h5 class="card-title text-primary fw-bold">Voluntario</h5>
+                                <p class="card-text text-muted small">
+                                    Personas dispuestas a coordinar la recolección y entrega de donaciones.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Tarjeta Beneficiario -->
+                <div class="col-md-4">
+                    <a href="@Url.Action("Register", "Registration", new { profileType = "Beneficiario" })"
+                       class="text-decoration-none">
+                        <div class="card h-100 border-warning shadow-sm p-3">
+                            <div class="card-body text-center">
+                                <div class="mb-3" style="font-size: 2.5rem;">🏠</div>
+                                <h5 class="card-title text-warning fw-bold">Beneficiario</h5>
+                                <p class="card-text text-muted small">
+                                    Fundaciones, comedores comunitarios y familias con inseguridad alimentaria.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="mt-4">
+                <p class="text-muted small">
+                    ¿Ya tienes una cuenta?
+                    <a asp-area="Identity" asp-page="/Account/Login">Inicia sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

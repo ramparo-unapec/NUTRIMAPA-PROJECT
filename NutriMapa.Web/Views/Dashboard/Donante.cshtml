@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Panel del Donante";
+    var profile = ViewBag.Profile as NutriMapa.Web.Models.UserProfile;
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="mb-0">Bienvenido, @(profile?.Organization ?? profile?.FullName)</h3>
+            <span class="badge bg-success">Donante</span>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-success text-center p-3">
+                <div class="card-body">
+                    <h2 class="text-success">0</h2>
+                    <p class="text-muted mb-0">Donaciones activas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>0</h2>
+                    <p class="text-muted mb-0">Donaciones entregadas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>0 kg</h2>
+                    <p class="text-muted mb-0">Alimentos redistribuidos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-success text-white">Mis donaciones</div>
+        <div class="card-body text-center text-muted py-5">
+            Aún no has registrado donaciones.
+            <br />
+            <a href="#" class="btn btn-success mt-3">Registrar nueva donación</a>
+        </div>
+    </div>
+</div>

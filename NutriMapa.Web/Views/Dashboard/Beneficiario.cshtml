@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Panel del Beneficiario";
+    var profile = ViewBag.Profile as NutriMapa.Web.Models.UserProfile;
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="mb-0">Bienvenido, @(profile?.Organization ?? profile?.FullName)</h3>
+            <span class="badge bg-warning text-dark">Beneficiario</span>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-warning text-center p-3">
+                <div class="card-body">
+                    <h2 class="text-warning">0</h2>
+                    <p class="text-muted mb-0">Solicitudes activas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>0</h2>
+                    <p class="text-muted mb-0">Entregas recibidas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>0 kg</h2>
+                    <p class="text-muted mb-0">Alimentos recibidos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-warning">Mis solicitudes</div>
+        <div class="card-body text-center text-muted py-5">
+            No tienes solicitudes activas.
+            <br />
+            <a href="#" class="btn btn-warning mt-3">Solicitar alimentos</a>
+        </div>
+    </div>
+</div>

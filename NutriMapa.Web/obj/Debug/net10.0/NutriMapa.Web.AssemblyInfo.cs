@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NutriMapa.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d0e3cdedb744331effb211c1c19de16f8ea2a21")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d572746a56b6a803e96ac805964c46f126e49311")]
 [assembly: System.Reflection.AssemblyProductAttribute("NutriMapa.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NutriMapa.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

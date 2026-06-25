@@ -1,0 +1,126 @@
+@model NutriMapa.Web.Models.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Registro de " + ViewBag.ProfileType;
+
+    // Colores según el perfil seleccionado
+    var colorClass = ViewBag.ProfileType switch
+    {
+        "Donante"     => "success",
+        "Voluntario"  => "primary",
+        "Beneficiario"=> "warning",
+        _             => "secondary"
+    };
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <!-- Encabezado con badge de perfil -->
+            <div class="text-center mb-4">
+                <span class="badge bg-@colorClass fs-6 px-3 py-2 mb-2">@ViewBag.ProfileType</span>
+                <h3 class="mt-2">Crear cuenta en NutriMapa</h3>
+                <p class="text-muted small">
+                    <a href="@Url.Action("SelectProfile", "Registration")">Cambiar tipo de perfil</a>
+                </p>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+
+                    <form asp-action="Register" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <!-- Campo oculto: lleva el tipo de perfil al controlador -->
+                        <input type="hidden" asp-for="ProfileType" value="@ViewBag.ProfileType" />
+
+                        <div class="row g-3">
+
+                            <!-- Nombre completo -->
+                            <div class="col-12">
+                                <label asp-for="FullName" class="form-label fw-semibold"></label>
+                                <input asp-for="FullName" class="form-control" placeholder="Ej: Juan Pérez" />
+                                <span asp-validation-for="FullName" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Correo electrónico -->
+                            <div class="col-12">
+                                <label asp-for="Email" class="form-label fw-semibold"></label>
+                                <input asp-for="Email" class="form-control" placeholder="correo@ejemplo.com" />
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div class="col-md-6">
+                                <label asp-for="PhoneNumber" class="form-label fw-semibold"></label>
+                                <input asp-for="PhoneNumber" class="form-control" placeholder="809-000-0000" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Organización (solo visible para Donante y Beneficiario) -->
+                            @if (ViewBag.ProfileType == "Donante" || ViewBag.ProfileType == "Beneficiario")
+                            {
+                                <div class="col-md-6">
+                                    <label asp-for="Organization" class="form-label fw-semibold"></label>
+                                    <input asp-for="Organization" class="form-control"
+                                           placeholder="@(ViewBag.ProfileType == "Donante" ? "Nombre del comercio" : "Nombre de la fundación")" />
+                                    <span asp-validation-for="Organization" class="text-danger small"></span>
+                                </div>
+                            }
+
+                            <!-- Dirección -->
+                            <div class="col-12">
+                                <label asp-for="Address" class="form-label fw-semibold"></label>
+                                <input asp-for="Address" class="form-control"
+                                       placeholder="Sector, calle y número, municipio" />
+                                <span asp-validation-for="Address" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Contraseña -->
+                            <div class="col-md-6">
+                                <label asp-for="Password" class="form-label fw-semibold"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Confirmar contraseña -->
+                            <div class="col-md-6">
+                                <label asp-for="ConfirmPassword" class="form-label fw-semibold"></label>
+                                <input asp-for="ConfirmPassword" class="form-control" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                            </div>
+
+                        </div>
+
+                        <!-- Errores generales del servidor -->
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            <div class="alert alert-danger mt-3 small">
+                                @Html.ValidationSummary(true)
+                            </div>
+                        }
+
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-@colorClass btn-lg">
+                                Crear cuenta como @ViewBag.ProfileType
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <p class="text-center text-muted small mt-3">
+                ¿Ya tienes una cuenta?
+                <a asp-area="Identity" asp-page="/Account/Login">Inicia sesión aquí</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

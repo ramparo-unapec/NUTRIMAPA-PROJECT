@@ -1,0 +1,100 @@
+@model IEnumerable<NutriMapa.Web.Models.UserProfile>
+
+@{
+    ViewData["Title"] = "Panel Administrativo";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="mb-0">Panel Administrativo</h3>
+            <span class="badge bg-dark">Administrador</span>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>@Model.Count()</h2>
+                    <p class="text-muted mb-0">Usuarios registrados</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>@Model.Count(p => p.ProfileType == "Donante")</h2>
+                    <p class="text-muted mb-0">Donantes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>@Model.Count(p => p.ProfileType == "Voluntario")</h2>
+                    <p class="text-muted mb-0">Voluntarios</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                <div class="card-body">
+                    <h2>@Model.Count(p => p.ProfileType == "Beneficiario")</h2>
+                    <p class="text-muted mb-0">Beneficiarios</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de usuarios -->
+    <div class="card">
+        <div class="card-header bg-dark text-white">Usuarios registrados</div>
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Nombre completo</th>
+                        <th>Perfil</th>
+                        <th>Organización</th>
+                        <th>Teléfono</th>
+                        <th>Verificado</th>
+                        <th>Registrado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.FullName</td>
+                            <td>
+                                <span class="badge bg-@(user.ProfileType == "Donante" ? "success" : user.ProfileType == "Voluntario" ? "primary" : "warning text-dark")">
+                                    @user.ProfileType
+                                </span>
+                            </td>
+                            <td>@(user.Organization ?? "—")</td>
+                            <td>@(user.PhoneNumber ?? "—")</td>
+                            <td>
+                                @if (user.IsVerified)
+                                {
+                                    <span class="text-success">Verificado</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Pendiente</span>
+                                }
+                            </td>
+                            <td>@user.CreatedAt.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-4">No hay usuarios registrados aún.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
